@@ -1,0 +1,174 @@
+---
+---
+
+@import "styles/bootstrap/variables.less";
+@import "styles/bootstrap/mixins.less";
+
+//size
+@logo-size:             280px;
+
+//color
+@logo-color:            #5B798C;
+@logo-accent:           darken(@logo-color, 20);
+@logo-shadow-color:     #666;
+@logo-text-color:       #EEE;
+@logo-text-shadow:      #666;
+
+
+.make_logo (@scale) {
+  margin: 10px 0px;
+  cursor: pointer;
+  .border-radius(50%);
+  .box-shadow(0px 0px 15px @logo-shadow-color);
+  #gradient > .radial(@logo-color, @logo-accent);
+  width: @logo-size * @scale;
+  height: @logo-size * @scale; 
+  span{
+    text-align: center;
+    color: @logo-text-color;
+    #font > .sans-serif();
+    font-size: (@logo-size * 0.235) * @scale;
+    text-shadow: 0px 0px 5px @logo-text-shadow;
+    line-height: 89%;
+    &.first{
+      padding-top: 26%;
+      font-size: (@logo-size * 0.27) * @scale;
+    }
+    &.initials{
+      padding-top: 22%;
+      font-size: (@logo-size * 0.59) * @scale;
+    }
+  }
+}
+
+header{
+  margin-top: 4px;
+  div.blurb{
+    width: 263px;
+    margin-top: 100px;
+    margin-left: 20px;
+    text-align: left;
+    p {
+      text-align: left;
+    }
+  }
+  &.hero-unit{
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+
+// Landscape phones and down
+@media (max-width: 481px) { 
+  .logo{
+    .make_logo(.25);
+  }
+}
+
+//Landscape phone to portrait tablet
+@media(max-width: 767px) { 
+  .logo{ .make_logo(0.5); }
+  header{
+    margin-top: 4px;
+    div.blurb{
+      width: 100%;
+      margin-top: 20px;
+      margin-left: 0px;
+      h2{
+        text-align: center;
+      }
+      p{
+        display: none;
+      }
+    }
+    .logo-wrapper{
+      float: none;
+    }
+    .logo{
+      margin: auto;
+      display: block;
+    }
+  }
+  header.hero-unit{
+    margin-bottom: 0px;
+  }
+  #main section.span4{
+    padding-top: 10px;
+    padding-left: 10px;
+    &.first{
+      border-top: 4px solid @logo-color;
+    }
+  }
+}
+
+// Portrait tablet to landscape and desktop
+@media (min-width: 768px) and (max-width: 979px) { 
+  .logo{ .make_logo(0.75); }
+  header div.blurb{
+    margin-top: 70px;
+  }
+}
+
+//desktop
+@media (min-width: 980px) { 
+  .logo { .make_logo(1); }
+  header div.blurb{
+    margin-top: 100px;
+  }
+}
+ 
+//large desktop
+@media (min-width: 1200px){
+}
+
+i.dream{
+  font-size: 12px;
+  font-wieght: normal;
+}
+
+
+.pinstripe{
+  height: 4px;
+  background: darken(@logo-color, 10);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+html, body {
+    height: 100%;
+    padding-left: 0px !IMPORTANT;
+    padding-right: 0px !IMPORTANT;
+}
+
+.wrapper {
+  min-height: 100%;
+}
+
+.inner-wrapper{
+  overflow: auto;
+  padding-bottom: 180px;
+}
+
+footer {
+  position: relative;
+  margin-top: -184px;
+  height: 180px;
+  clear: both;
+  background: darken(@logo-accent, 10);
+  border-top: 4px solid darken(@logo-color, 10);
+}
+
+#main section.span4{
+  border-bottom: 4px solid @logo-color;
+  &.last{
+    margin-bottom: 30px;
+  }
+}
+
+div.github-icon{
+  height: 32px;
+  width: 32px;
+  background-image: url('/img/github-icon.png');
+}
